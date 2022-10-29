@@ -13,7 +13,8 @@ function Alert(props) {
         display: 'flex',
         justifyContent: 'center',
         margin: '10px',
-        position: "absolute"
+        position: "sticky",
+        top: "30px"
     }
     return (
         <div className="container" style={AStyle}>

@@ -39,6 +39,12 @@ const Notes = (props) => {
 
     const searchByFilter = () => {
         getSpecificNotes(searchText);
+        document.getElementById("remove_filter").style.display = "block";
+    }
+    const remove_filter = async () => {
+        getNotes();
+        document.getElementById("remove_filter").style.display = "none";
+        setSearchText("")
     }
     return (
         <>
@@ -53,7 +59,7 @@ const Notes = (props) => {
                             <input type="text" style={{ width: "100%", border: "none", background: "none" }} className=" text-center border-bottom  p-0 fs-3" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body pt-0">
+                        <div className="modal-body py-0">
                             <form className="my-3">
                                 <div className="mb-3">
                                     <textarea style={{ width: "100%", border: "none", background: "none", fontSize: "18px" }} id="edescription" rows={20} name="edescription" value={note.edescription} onChange={onChange} minLength={5} required />
@@ -70,7 +76,7 @@ const Notes = (props) => {
 
             <div className="row my-3">
                 <div className='d-flex justify-content-between pb-3'>
-                    <h2>You Notes</h2>
+                    <h2>Your Notes</h2>
                     <div className='d-flex flex-row'>
                         <form className='d-flex' onSubmit={(e) => { searchByFilter(); e.preventDefault(); }}>
                             <input
@@ -81,14 +87,15 @@ const Notes = (props) => {
                                 onChange={(e) => {
                                     setSearchText(e.target.value)
                                 }} />
-                            <button type="submit" className=' btn btn-secondary'>Search</button>
+                            <button type="submit" className={`btn btn-secondary ${searchText.length <= 0 && "disabled"}`}>Search</button>
                         </form>
                     </div>
                 </div>
                 <hr />
-                <div className="container mx-2">
-                    {notes.length === 0 && 'No notes to display'}
-                </div>
+                <button className='text-right btn bg-secondary bg-opacity-50' style={{ display: "none" }} id='remove_filter' onClick={remove_filter}>Remove filters</button>
+                {notes.length === 0 && <div className="container mx-2 p-5 text-center">
+                    No notes to display
+                </div>}
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} note={note} showMsg={props.showMsg} />
                 })}

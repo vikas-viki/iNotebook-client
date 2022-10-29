@@ -5,7 +5,6 @@ const NoteState = (props) => {
   const host = "http://localhost:5000"
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
-  const [filteredNote, setFilteredNote] = useState([]);
 
   // Get all Notes
   const getNotes = async () => {
@@ -59,6 +58,7 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem("token")
       }
     });
+    // eslint-disable-next-line
     const json = response.json(); 
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
@@ -75,6 +75,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description, tag})
     });
+    // eslint-disable-next-line
     const json = await response.json(); 
 
      let newNotes = JSON.parse(JSON.stringify(notes))
@@ -92,7 +93,7 @@ const NoteState = (props) => {
   }
 
   return (
-    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes, getSpecificNotes, filteredNote }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes, getSpecificNotes }}>
       {props.children}
     </NoteContext.Provider>
   )
