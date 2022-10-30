@@ -17,7 +17,7 @@ const Signup = (props) => {
             })
         }
         gapi.load("client:auth2", start)
-    })
+    },[])
 
 
     const signUpUser = async (e) => {
@@ -40,8 +40,9 @@ const Signup = (props) => {
 
                 history.push("/")
             }, 1500)
-        }
-        else {
+        } else if (json.exists) {
+            props.showMsg("User already exists, please login", "warning");
+        } else {
             props.showMsg("Incorrect data provided.", "warning");
         }
 
@@ -51,8 +52,7 @@ const Signup = (props) => {
         setDetails({ ...details, [e.target.name]: e.target.value })
     }
 
-    const onSuccess = async(res) => {
-        console.log(res.profileObj)
+    const onSuccess = async (res) => {
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
             headers: {
@@ -61,7 +61,6 @@ const Signup = (props) => {
             body: JSON.stringify({ name: res.profileObj.givenName, email: res.profileObj.email, password: res.profileObj.googleId })
         });
         const json = await response.json()
-        // console.log(json);
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken);
@@ -69,10 +68,31 @@ const Signup = (props) => {
             setTimeout(() => {
 
                 history.push("/")
-            }, 1500)
+            }, 2000)
         }
-        else {
-            props.showMsg("User already exist please login.", "warning");
+        else if (json.exists) {
+            props.showMsg("User already exist, we are logging you in", "success");
+            const response = await fetch("http://localhost:5000/api/auth/login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email: res.profileObj.email, password: res.profileObj.googleId })
+            });
+            const json = await response.json();
+            if (json.success) {
+                // Save the auth token and redirect
+                localStorage.setItem('token', json.authtoken);
+                props.showMsg("Signup successfull, you are being rediredcted", "success");
+                setTimeout(() => {
+
+                    history.push("/")
+                }, 2000)
+            } else {
+                props.showMsg("Somme error occured", "danger")
+            }
+        } else {
+            props.showMsg("Somme error occured", "danger")
         }
     }
     const onFailure = (res) => {
