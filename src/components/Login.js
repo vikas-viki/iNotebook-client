@@ -13,7 +13,7 @@ const Login = (props) => {
     useEffect(() => {
         function start() {
             gapi.client.init({
-                clientId: clientId,
+                client_id: clientId,
                 scope: ""
             })
         }
