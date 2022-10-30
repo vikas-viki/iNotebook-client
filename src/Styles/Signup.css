@@ -1,0 +1,30 @@
+.signUpForm, .signup_btn{
+    width: 70%;
+}
+.signUpForm > div{
+    width: 70%;
+}
+@media screen and (min-width: 971px){
+    .signUpForm, .signup_btn{
+        width: 60%;
+    }
+    .signUpForm > div{
+        width: 60%;
+    } 
+}
+@media screen and (max-width: 600px){
+    .signUpForm, .signup_btn{
+        width: 80%;
+    }
+    .signUpForm > div{
+        width: 80%;
+    } 
+}
+@media screen and (max-width: 400px){
+    .signUpForm, .signup_btn{
+        width: 90%;
+    }
+    .signUpForm > div{
+        width: 90%;
+    } 
+}
