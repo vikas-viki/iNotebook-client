@@ -35,7 +35,8 @@ INotebook is built on top of `React` which is basically used to take a quick not
 ## Contributing
 
 Contributions are always welcome!
-For backend documentation vidit [docs](https://github.com/vikas-viki/iNotebook-backend)
+
+For backend documentation visit [docs](https://github.com/vikas-viki/iNotebook-backend)
 
 Thankyou!
 
