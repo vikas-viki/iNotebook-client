@@ -7,6 +7,7 @@ INotebook is built on top of `React` which is basically used to take a quick not
 - `React` -> For structuring the whole app.
 - `react-router-dom` -> For navigating throught the tabs.
 - `react-google-login` -> For having quick google login functionality. 
+- `Bootstrap` -> for designing the app.
 
 ### Usage
 *INotebook is basically used to take the quick notes of the users which stores all the users notes seperatly in the database this app has the login functionality which is fully accurate which makes authorization easier*.
