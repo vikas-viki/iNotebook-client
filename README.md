@@ -11,7 +11,9 @@ INotebook is built on top of `React` which is basically used to take a quick not
 ### Usage
 *INotebook is basically used to take the quick notes of the users which stores all the users notes seperatly in the database this app has the login functionality which is fully accurate which makes authorization easier*.
 
-*User can quicky take their notes in this this app and edit by looging in to their account to get their notes. The google login functionality only usesr the users basic data fro authorisation*. 
+*User can quicky take their notes in this this app and edit by looging in to their account to get their notes. It also has the search functionality which help the user to locate their specific notes*.
+
+*The google login functionality only uses the users basic data for authorisation*. 
 
 ### Samples
 - login
