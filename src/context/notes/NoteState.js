@@ -2,7 +2,7 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = 'https://takeshortnotes.netlify.app'
+  const host = 'https://take-shorts-note-api.onrender.com'
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 

@@ -23,7 +23,7 @@ const Signup = (props) => {
     const signUpUser = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+        const response = await fetch("https://take-shorts-note-api.onrender.com/api/auth/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ const Signup = (props) => {
     }
 
     const onSuccess = async (res) => {
-        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+        const response = await fetch("https://take-shorts-note-api.onrender.com/api/auth/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const Signup = (props) => {
         }
         else if (json.exists) {
             props.showMsg("User already exist, we are logging you in", "success");
-            const response = await fetch("http://localhost:5000/api/auth/login", {
+            const response = await fetch("https://take-shorts-note-api.onrender.com/api/auth/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
