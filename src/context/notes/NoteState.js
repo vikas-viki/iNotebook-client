@@ -2,7 +2,7 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000"
+  const host = 'https://takeshortnotes.netlify.app'
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
@@ -33,7 +33,6 @@ const NoteState = (props) => {
 
   // Add a Note
   const addNote = async (title, description, tag) => {
-    // TODO: API Call
     // API Call 
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: 'POST',

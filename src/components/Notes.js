@@ -3,7 +3,7 @@ import noteContext from "../context/notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import { useHistory } from 'react-router-dom';
-import "../Styles/Notes.css"
+import "../Styles/Notes.css";
 
 const Notes = (props) => {
     const history = useHistory();

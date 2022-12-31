@@ -1,6 +1,6 @@
 import Notes from './Notes';
 
-export const Home = (props) => {
+ const Home = (props) => {
 
     return (
         <div> 
@@ -8,3 +8,4 @@ export const Home = (props) => {
         </div>
     )
 }
+export default Home;
