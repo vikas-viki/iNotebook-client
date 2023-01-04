@@ -8,7 +8,7 @@ const Noteitem = (props) => {
     const { note, updateNote } = props;
     return (
         <div className="col-md-3">
-            <div className="card my-3" style={{height: "13rem", border: "1px solid grey "}}>
+            <div className="card my-3" style={{height: "13rem", border: "1px solid grey ", overflow: 'hidden'}}>
                 <div className="card-body">
                     <div className="d-flex justify-content-between align-items-center">
                         <h5 className="card-title text-center">{note.title}</h5>
