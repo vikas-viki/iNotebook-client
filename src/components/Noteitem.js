@@ -21,7 +21,7 @@ const Noteitem = (props) => {
                             <i className="far fa-edit mx-2" onClick={() => { updateNote(note) }}></i>
                         </span>
                     </div>
-                    <p className="card-text">{note.description}</p>
+                    <p className="card-text">{note.description.length > 50 ? note.description.slice(0,25) + "..." : note.description}</p>
 
                 </div>
             </div>
